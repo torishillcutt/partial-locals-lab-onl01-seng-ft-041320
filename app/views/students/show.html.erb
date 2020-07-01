@@ -1,3 +1,11 @@
 <h1>Student Info</h1>
-
-<%= render 'student' %>
+  
+<%= form_tag(students_path, method: :get) do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag ("Search") %>
+  </p>
+<% end %>
+<p>
+<%= render partial: 'student', locals: {student: @student} %>
+</p>
